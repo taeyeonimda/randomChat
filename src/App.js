@@ -3,8 +3,8 @@ import io from "socket.io-client";
 import "./App.css";
 
 // IP 주소는 본인 환경에 맞게 유지하세요
-const socket = io.connect("http://172.20.4.191:3001");
-
+const serverUrl = process.env.REACT_APP_SERVER_URL || "http://localhost:3001";
+const socket = io.connect(serverUrl);
 function App() {
   // [변경] 초기값을 빈 문자열로 설정 (사용자가 입력해야 함)
   const [userId, setUserId] = useState(""); 
