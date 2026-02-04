@@ -191,7 +191,7 @@ function App() {
                          <span>{content.message}</span>
                     ) : (
                         <div style={{ display: "flex", flexDirection: "column" }}>
-                            <span style={{ fontSize: "13px", marginBottom: "5px" }}>📁 {content.fileName}</span>
+                            {/* <span style={{ fontSize: "13px", marginBottom: "5px" }}>📁 {content.fileName}</span> */}
                             {content.fileData.startsWith("data:image") ? 
                                 <img src={content.fileData} style={{ maxWidth: "100%", borderRadius: "5px" }} alt="uploaded"/> : 
                                 <a href={content.fileData} download={content.fileName} style={{ color: "#007bff", textDecoration: "none" }}>⬇ 다운로드</a>
