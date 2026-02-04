@@ -7,10 +7,12 @@ const app = express();
 app.use(cors());
 
 const server = http.createServer(app);
+const PORT = process.env.PORT || 3001;
 const io = new Server(server, {
   cors: {
     // origin: "http://localhost:3000", // 리액트 주소
-    origin: "http://172.20.4.191:3000", // 리액트 주소
+    // origin: "http://172.20.4.191:3000", // 리액트 주소
+    origin: "*",
     methods: ["GET", "POST"],
   },
   maxHttpBufferSize: 1e8 // 파일 전송 용량 제한 (100MB)
@@ -86,6 +88,10 @@ io.on("connection", (socket) => {
   });
 });
 
-server.listen(3001, () => {
-  console.log("SERVER RUNNING ON PORT 3001");
+server.listen(PORT, () => {
+  console.log(`SERVER RUNNING ON PORT ${PORT}`);
 });
+
+// server.listen(3001, () => {
+//   console.log("SERVER RUNNING ON PORT 3001");
+// });
